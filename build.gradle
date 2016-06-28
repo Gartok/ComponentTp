@@ -6,13 +6,13 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'spring-boot' 
+apply plugin: 'spring-boot'
 
 jar {
 	baseName = 'component'
@@ -23,17 +23,21 @@ targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
+	maven { url "http://oss.sonatype.org/content/repositories/vaadin-snapshots/" }
 }
 
 
 dependencies {
+	compile('org.springframework.boot:spring-boot-starter-ws')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-starter-ws')
+	compile group: 'joda-time', name: 'joda-time', version: '2.3'
+	compile("com.vaadin:vaadin-spring-boot-starter:1.0.0")
 	runtime('mysql:mysql-connector-java')
-	testCompile('org.springframework.boot:spring-boot-starter-test') 
+	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
-
 
 eclipse {
 	classpath {
