@@ -2,7 +2,6 @@ package com.nicolas.component.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.nicolas.component.CustomJsonDateDeserializer;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -35,7 +34,6 @@ public class Order {
     @XmlElement(name = "dateCreated")
     @JsonFormat(pattern="yyyy-MM-dd'T'hh:mm:ss.SSSZ")
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss.SSSZ")
-    @JsonDeserialize(using = CustomJsonDateDeserializer.class)
     private Date dateCreated;
 
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
