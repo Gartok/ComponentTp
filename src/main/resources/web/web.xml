@@ -7,7 +7,7 @@
      http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
     <servlet>
-        <servlet-name>myservlet</servlet-name>
+        <servlet-name>Vaadin</servlet-name>
         <servlet-class>
             com.vaadin.server.VaadinServlet
         </servlet-class>
@@ -20,7 +20,7 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>myservlet</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <servlet-name>Vaadin</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>
